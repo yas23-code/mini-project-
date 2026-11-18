@@ -1,0 +1,40 @@
+# Node dependencies
+node_modules/
+.npm/
+
+# Build artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Temporary files and scripts
+scratch/
+mini-project--main/
+test_*.py
+test_*.pdf
+verify_*.py
+find_toc_pages.py
+inspect_cover.py
+expand_chap*.py
+update_report.py
+sync_markdown.py
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

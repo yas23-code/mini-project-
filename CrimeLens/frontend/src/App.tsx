@@ -5,23 +5,26 @@ import {
   BarChart3,
   Brain,
   MapPin,
-  Radio,
   Menu,
   X,
   Shield,
+  Navigation,
+  Car,
 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
 import Analytics from './pages/Analytics';
 import Prediction from './pages/Prediction';
 import Hotspots from './pages/Hotspots';
-import IoTMonitor from './pages/IoTMonitor';
+import SafePath from './pages/SafePath';
+import PatrolOptimizer from './pages/PatrolOptimizer';
 
 const navItems = [
   { path: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { path: '/analytics', label: 'Crime Analytics', icon: BarChart3 },
-  { path: '/predict', label: 'AI Prediction', icon: Brain },
+  { path: '/safepath', label: 'SafePath AI Corridor', icon: Navigation, isNew: true },
+  { path: '/patrol-optimizer', label: 'Smart Patrol Hub', icon: Car, isNew: true },
+  { path: '/predict', label: 'AI Prediction & XAI', icon: Brain },
   { path: '/hotspots', label: 'Hotspot Map', icon: MapPin },
-  { path: '/iot', label: 'IoT Monitor', icon: Radio },
+  { path: '/analytics', label: 'Crime Analytics', icon: BarChart3 },
 ];
 
 function App() {
@@ -45,7 +48,7 @@ function App() {
             <Shield size={28} className="sidebar__brand-icon" />
             <div>
               <h1 className="sidebar__title">CrimeLens</h1>
-              <p className="sidebar__subtitle">AI Safety Monitor</p>
+              <p className="sidebar__subtitle">AI Safety &amp; Corridor Suite</p>
             </div>
           </div>
 
@@ -61,14 +64,32 @@ function App() {
                 onClick={() => setSidebarOpen(false)}
               >
                 <item.icon size={20} />
-                <span>{item.label}</span>
+                <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                  {item.label}
+                  {item.isNew && (
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #6366f1, #a855f7)',
+                        color: '#fff',
+                        fontSize: '0.65rem',
+                        fontWeight: 700,
+                        padding: '1px 6px',
+                        borderRadius: '4px',
+                        letterSpacing: '0.5px',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      Novel
+                    </span>
+                  )}
+                </span>
               </NavLink>
             ))}
           </nav>
 
           <div className="sidebar__footer">
-            <p>© 2024 CrimeLens</p>
-            <p className="sidebar__footer-note">College Mini Project</p>
+            <p>&copy; 2026 CrimeLens Suite</p>
+            <p className="sidebar__footer-note">College Mini Project &bull; ABES</p>
           </div>
         </aside>
 
@@ -84,10 +105,11 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/safepath" element={<SafePath />} />
+            <Route path="/patrol-optimizer" element={<PatrolOptimizer />} />
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/predict" element={<Prediction />} />
             <Route path="/hotspots" element={<Hotspots />} />
-            <Route path="/iot" element={<IoTMonitor />} />
           </Routes>
         </main>
       </div>

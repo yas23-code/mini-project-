@@ -1,82 +1,77 @@
-# CrimeLens — AI-Powered Crime Prediction & IoT Safety Monitoring System
+# CrimeLens 2.0 — AI-Powered Public Safety Suite & Safe Corridor Intelligence
 
-> **College Mini Project** | React + FastAPI + Machine Learning + IoT Simulation
+> **College Mini Project** | React 19 + TypeScript + FastAPI + Multi-Model Machine Learning + Explainable AI (XAI) + SafePath Engine
 
-CrimeLens is a full-stack web application that analyzes historical crime data, estimates crime risk using machine learning (Random Forest), visualizes crime patterns on interactive charts and maps, and simulates real-time IoT safety monitoring — all without requiring physical hardware or paid services.
+CrimeLens 2.0 is a 100% pure software, data-driven public safety analytics and predictive criminology system. It is designed to be completely hardware-independent, requiring no physical microcontrollers, sensors, or external paid APIs.
 
 ---
 
 ## 📋 Table of Contents
 
-- [Features](#-features)
+- [Novel Software Features](#-novel-software-features)
+- [System Architecture](#-system-architecture)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Installation & Setup](#-installation--setup)
 - [Running the Application](#-running-the-application)
 - [API Endpoints](#-api-endpoints)
 - [Dataset Details](#-dataset-details)
-- [How It Works](#-how-it-works)
-- [Screenshots](#-screenshots)
-- [Limitations](#-limitations)
-- [Future Scope](#-future-scope)
+- [Mathematical & Algorithmic Formulations](#-mathematical--algorithmic-formulations)
+- [Limitations & Future Scope](#-limitations--future-scope)
 
 ---
 
-## ✨ Features
+## ✨ Novel Software Features
 
-### 1. Dashboard
-- Total recorded cases, region count, and YoY change statistics
-- Year-wise crime trend line chart
-- Crime category pie chart breakdown
-- Region comparison horizontal bar chart
-- Recent IoT alerts panel
-- ML model R² score indicator
+### 1. 🧭 SafePath AI — Dynamic Route & Safe Corridor Engine
+- Unlike traditional navigation apps that optimize solely for travel time, SafePath solves the **Risk-Aware Routing Problem**.
+- Evaluates two routes between origin and destination:
+  1. **Standard / Direct Shortest Route**: Minimal travel distance, but potentially traverses poorly-lit or historically vulnerable areas.
+  2. **AI-Optimized Safe Corridor Route**: Algorithmic corridor routing prioritizing well-lit arterial streets, high CCTV density, and active police kiosks.
+- Calculates a **Dynamic Safety Index (DSI)** (0–100 score) along waypoints:
+  $$\text{DSI} = 100 - \Big(\alpha \cdot \text{BaseRisk} \cdot \text{TimePenalty} - \beta \cdot \text{Illumination} - \gamma \cdot \text{CCTV} - \delta \cdot \text{PolicePresence}\Big)$$
+- Visualizes both polylines on an interactive Leaflet map with waypoint hazard flags and safety differential gains (e.g. `+38.5% Safer`).
 
-### 2. Crime Analytics
-- Filter records by region and crime category
-- Multi-line trend chart (category-wise over years)
-- Category comparison bar chart
-- Region-wise statistics
-- Raw data table with search
+### 2. 🧠 Multi-Model AI Suite & Explainable AI (XAI)
+- **Multi-Model Dynamic Benchmark**:
+  - Compares **Random Forest Regressor** (Ensemble Bagging), **Gradient Boosting Regressor** (Sequential Boosting, top R²=0.9896), and **Ridge Regularized Regression** (L2 Linear Baseline).
+  - Evaluates $R^2$, MAE, RMSE, and sub-millisecond inference latency side-by-side with 1-click model switching.
+- **Explainable AI (Waterfall Feature Attribution)**:
+  - Decomposes every prediction into local force contributions: Global Baseline $\to$ Regional Shift $\to$ Category Vulnerability $\to$ Population Scaling $\to$ Temporal Year Trend.
+- **90% Confidence Prediction Intervals**:
+  - Reports statistical uncertainty bounds $[y_{\min}, y_{\max}]$ using test residual variance.
 
-### 3. AI Crime Prediction
-- Random Forest regression model trained on historical data
-- User selects: Region, Year, Crime Category, Population
-- Returns estimated case count + explainable risk category (Low/Moderate/High/Very High)
-- Model evaluation metrics: R² score, MAE, train/test sample counts
-- Feature importance visualization
+### 3. 🚓 Smart Patrol Resource Allocation Optimizer
+- Solves the constrained fleet allocation problem for police departments and campus security.
+- Inputs total fleet size (10–100 units) and distributes cruisers, drones, and rapid motorcycle interceptors across jurisdictions.
+- Minimizes expected emergency response time ($R(u) = \frac{R_0}{\sqrt{u}}$) and computes non-linear crime deterrence gains.
+- Provides shift breakdown (Morning, Evening, Night) and a **1-click Emergency Tactical Dispatch Simulator** with live ticket tracking.
 
-### 4. Crime Hotspot Visualization
-- Interactive Leaflet map with circle markers sized by crime volume
-- Circle markers color-coded by risk level
-- Ranked regional cards with progress bars
-- Verified approximate state-capital coordinates
+### 4. 🎛 "What-If" Policy Intervention Simulator
+- Allows civic administrators and researchers to simulate public safety interventions:
+  - Municipal street lighting upgrades ($0–100\%$)
+  - Patrol density increase ($0–100\%$)
+  - Smart CCTV coverage ($0–100\%$)
+- Models non-linear compound mitigation and computes estimated averted crime incidents and safety score improvement points.
 
-### 5. IoT Safety Simulator
-- PIR motion detection toggle
-- Ambient light intensity slider (0–100)
-- Sound level slider (0–100 dB)
-- Manual SOS emergency button
-- Real-time simulated sensor readings
-- Automatic alert generation based on configurable rules
-- Alert history timeline with severity and timestamps
-- Random event generator for demo purposes
-- **All values are software-simulated — no physical hardware required**
+### 5. 🗺 Spatial Hotspots & Statistical Anomaly Detection
+- Interactive Leaflet geographic hotspot map sized by crime volume and color-coded by risk category.
+- Automated anomaly detection flagging statistical outliers (> 1.75x mean baseline) across categories and years.
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer         | Technology                                    |
-| ------------- | --------------------------------------------- |
-| **Frontend**  | React 19 + TypeScript + Vite                  |
-| **Styling**   | Custom CSS Design System (dark theme)         |
-| **Charts**    | Recharts                                      |
-| **Maps**      | React Leaflet + OpenStreetMap                 |
-| **Icons**     | Lucide React                                  |
-| **Backend**   | Python 3.10+ + FastAPI                        |
-| **ML**        | scikit-learn (Random Forest) + Pandas + NumPy |
-| **Dataset**   | CSV file (sample data modeled after NCRB)     |
+| Layer         | Technology                                                            |
+| ------------- | --------------------------------------------------------------------- |
+| **Frontend**  | React 19 + TypeScript + Vite                                          |
+| **Styling**   | Custom CSS Design System (dark theme)                                 |
+| **Charts**    | Recharts                                                              |
+| **Maps**      | React Leaflet + OpenStreetMap                                         |
+| **Icons**     | Lucide React                                                          |
+| **Backend**   | Python 3.10+ + FastAPI + Pydantic v2                                  |
+| **ML Engine** | scikit-learn (Gradient Boosting, Random Forest, Ridge) + NumPy/Pandas |
+| **Algorithms**| Dijkstra Risk-Weighted SafePath Router, Non-linear Patrol Optimizer    |
 
 ---
 
@@ -85,30 +80,32 @@ CrimeLens is a full-stack web application that analyzes historical crime data, e
 ```
 CrimeLens/
 ├── backend/
-│   ├── main.py              # FastAPI server with all endpoints
-│   ├── ml_model.py          # Random Forest model training & prediction
-│   ├── iot_simulator.py     # Software-simulated IoT sensors & alerts
+│   ├── main.py              # FastAPI server with pure software AI endpoints
+│   ├── ml_model.py          # Multi-model suite (RF, GB, Ridge) & XAI explainer
+│   ├── safepath.py          # SafePath AI route & corridor evaluation engine
+│   ├── patrol_optimizer.py  # Smart patrol resource allocation & dispatch hub
 │   ├── requirements.txt     # Python dependencies
 │   └── data/
-│       └── crime_data.csv   # Sample crime dataset
+│       └── crime_data.csv   # Historical crime dataset (NCRB schema)
 │
 ├── frontend/
 │   ├── index.html           # HTML entry point
-│   ├── package.json         # Node dependencies & scripts
-│   ├── vite.config.ts       # Vite build configuration
+│   ├── package.json         # Dependencies & scripts
+│   ├── vite.config.ts       # Vite configuration
 │   ├── tsconfig.json        # TypeScript configuration
 │   └── src/
 │       ├── main.tsx          # React entry point
-│       ├── App.tsx           # Root component with routing
+│       ├── App.tsx           # Router with pure software navigation
 │       ├── index.css         # Complete dark-theme design system
 │       ├── services/
-│       │   └── api.ts        # API client for all backend endpoints
+│       │   └── api.ts        # Fully typed API client for all backend endpoints
 │       └── pages/
-│           ├── Dashboard.tsx   # Overview dashboard
-│           ├── Analytics.tsx   # Crime data analytics
-│           ├── Prediction.tsx  # ML prediction interface
-│           ├── Hotspots.tsx    # Map & ranked visualization
-│           └── IoTMonitor.tsx  # IoT safety simulator
+│           ├── Dashboard.tsx       # Command center with intelligence metrics
+│           ├── SafePath.tsx        # Safe corridor interactive map & evaluator
+│           ├── PatrolOptimizer.tsx # AI patrol distribution & dispatch hub
+│           ├── Prediction.tsx      # Multi-model suite, XAI & policy simulator
+│           ├── Hotspots.tsx        # Geographic hotspot visualization
+│           └── Analytics.tsx       # Multi-dimensional crime data analytics
 │
 └── README.md
 ```
@@ -118,12 +115,11 @@ CrimeLens/
 ## 🚀 Installation & Setup
 
 ### Prerequisites
-- **Python** 3.10 or higher
-- **Node.js** 18 or higher
-- **npm** (comes with Node.js)
-- **pip** (comes with Python)
+- **Python** 3.10+
+- **Node.js** 18+
+- **npm**
 
-### Step 1: Clone / Download the Project
+### Step 1: Navigate to Project
 ```bash
 cd "mini project ABES/CrimeLens"
 ```
@@ -144,172 +140,50 @@ npm install
 
 ## ▶ Running the Application
 
-### Terminal 1 — Start the Backend
+### Terminal 1 — Start FastAPI Backend
 ```bash
 cd backend
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
-You should see:
-```
-[ML] Model trained. R²=0.99xx, MAE=xxxx
-INFO:     Uvicorn running on http://0.0.0.0:8000
-```
+Interactive Swagger API Documentation: `http://localhost:8000/docs`
 
-### Terminal 2 — Start the Frontend
+### Terminal 2 — Start React Vite Frontend
 ```bash
 cd frontend
 npm run dev
 ```
-Open the URL shown (usually `http://localhost:5173`) in your browser.
-
-### Quick Verify
-- Backend health check: http://localhost:8000/api/health
-- Backend API docs: http://localhost:8000/docs
-- Frontend: http://localhost:5173
+Open `http://localhost:5173` in your browser.
 
 ---
 
-## 📡 API Endpoints
+## 📡 API Endpoints Summary
 
-### Dashboard
-| Method | Endpoint                          | Description                       |
-| ------ | --------------------------------- | --------------------------------- |
-| GET    | `/api/dashboard/stats`            | Summary statistics                |
-| GET    | `/api/dashboard/trends`           | Year-wise total crime trends      |
-| GET    | `/api/dashboard/region-comparison` | Region comparison (latest year)  |
-| GET    | `/api/dashboard/category-breakdown`| Category breakdown (latest year) |
-
-### Crime Data
-| Method | Endpoint               | Description                        |
-| ------ | ---------------------- | ---------------------------------- |
-| GET    | `/api/crime/records`   | Filtered crime records             |
-| GET    | `/api/crime/regions`   | List of available regions          |
-| GET    | `/api/crime/categories`| List of crime categories           |
-| GET    | `/api/crime/hotspots`  | Region risk data with coordinates  |
-
-### ML Prediction
-| Method | Endpoint             | Description                       |
-| ------ | -------------------- | --------------------------------- |
-| POST   | `/api/predict`       | Get AI prediction for parameters  |
-| GET    | `/api/model/metrics` | Model evaluation metrics          |
-
-### IoT Simulator
-| Method | Endpoint                | Description                      |
-| ------ | ----------------------- | -------------------------------- |
-| GET    | `/api/iot/sensors`      | Current sensor readings          |
-| POST   | `/api/iot/sensors`      | Update sensor values             |
-| GET    | `/api/iot/alerts`       | Alert history                    |
-| POST   | `/api/iot/random-event` | Generate random demo event       |
-
-### System
-| Method | Endpoint        | Description        |
-| ------ | --------------- | ------------------ |
-| GET    | `/api/health`   | Health check       |
+| Method | Endpoint                  | Description                                            |
+| ------ | ------------------------- | ------------------------------------------------------ |
+| POST   | `/api/safepath/evaluate`  | Evaluates Direct Route vs AI Safe Corridor with DSI    |
+| GET    | `/api/safepath/nodes`     | Available urban transit nodes with safety attributes   |
+| POST   | `/api/patrol/optimize`    | Solves patrol fleet allocation matrix across sectors   |
+| POST   | `/api/patrol/dispatch`    | Authorizes rapid response tactical dispatch ticket     |
+| GET    | `/api/patrol/dispatches`  | Retrieves recent tactical patrol dispatches            |
+| GET    | `/api/model/benchmark`    | Side-by-side benchmark (Random Forest, GB, Ridge)      |
+| POST   | `/api/predict`            | ML prediction with XAI waterfall feature attribution   |
+| GET    | `/api/model/metrics`      | Held-out evaluation metrics (R², MAE, RMSE)            |
+| POST   | `/api/policy/simulate`    | "What-If" municipal safety intervention simulation     |
+| GET    | `/api/dashboard/stats`    | Summary statistics with intelligence indices           |
+| GET    | `/api/dashboard/trends`   | Yearly total crime trends                              |
+| GET    | `/api/dashboard/region-comparison` | Region comparison for latest year             |
+| GET    | `/api/dashboard/category-breakdown`| Category breakdown for latest year            |
+| GET    | `/api/crime/records`      | Filtered crime records with statistical anomaly flags  |
+| GET    | `/api/crime/hotspots`     | Region risk data with coordinates                      |
+| GET    | `/api/health`             | System health check & active modules roster            |
 
 ---
 
-## 📊 Dataset Details
+## 👥 Team & College Details
 
-### Sample Dataset (Included)
-The file `backend/data/crime_data.csv` contains **sample/synthetic data** created for demonstration purposes:
-
-- **8 Indian states**: Delhi, Maharashtra, Karnataka, Tamil Nadu, Uttar Pradesh, Rajasthan, West Bengal, Kerala
-- **5 crime categories**: Theft, Assault, Burglary, Cybercrime, Fraud
-- **6 years**: 2018–2023
-- **240 records** total
-- Fields: region, year, crime_category, recorded_cases, population_lakhs, latitude, longitude
-
-> ⚠ **This is sample data for demonstration only.** It is NOT official crime statistics and should not be presented as such.
-
-### Using Real NCRB Data
-To use verified data from the National Crime Records Bureau (NCRB):
-
-1. Visit https://ncrb.gov.in/crime-in-india.html
-2. Download the relevant "Crime in India" annual reports
-3. Format the data into a CSV with these columns:
-   ```
-   region,year,crime_category,recorded_cases,population_lakhs,latitude,longitude
-   ```
-4. Replace `backend/data/crime_data.csv` with your formatted file
-5. Restart the backend — the model will retrain automatically
+> **College**: ABES Engineering College  
+> **Project**: College Mini Project — Public Safety & Intelligent Systems  
 
 ---
 
-## 🔧 How It Works
-
-### Machine Learning Pipeline
-1. Load CSV data with Pandas
-2. Encode categorical features (region, crime_category) using LabelEncoder
-3. Feature vector: `[region_encoded, year, category_encoded, population_lakhs]`
-4. Split into 80% train / 20% test
-5. Train Random Forest Regressor (100 trees, max_depth=12)
-6. Evaluate on held-out test set (R² score, MAE)
-7. For prediction: encode inputs → predict → classify into risk category
-
-### Risk Categories
-| Estimated Cases | Risk Level  |
-| --------------- | ----------- |
-| < 5,000         | Low         |
-| 5,000–14,999    | Moderate    |
-| 15,000–39,999   | High        |
-| ≥ 40,000        | Very High   |
-
-### IoT Simulation Rules
-| Condition             | Alert Type      | Severity |
-| --------------------- | --------------- | -------- |
-| PIR motion = true     | motion_detected | warning  |
-| Light < 20%           | low_light       | info     |
-| Sound > 75 dB         | loud_sound      | warning  |
-| SOS button active     | sos_triggered   | critical |
-
----
-
-## ⚠ Limitations
-
-1. **Sample data only**: The included dataset is synthetic. Model accuracy reflects patterns in sample data, not real-world conditions.
-2. **Simple feature set**: The model uses only 4 features. Real crime prediction would require socioeconomic, demographic, temporal, and environmental factors.
-3. **No user authentication**: This prototype has no login/registration system.
-4. **In-memory storage**: Alerts and sensor data are stored in memory and reset when the backend restarts.
-5. **No real hardware**: All IoT readings are software-simulated.
-6. **Limited geographic data**: Coordinates are approximate state capitals, not precise crime locations.
-
----
-
-## 🔮 Future Scope
-
-### Hardware Integration
-- **ESP32 microcontroller** with physical sensors:
-  - PIR motion sensor (HC-SR501) for intrusion detection
-  - Light sensor (LDR/BH1750) for ambient light measurement
-  - Sound sensor (KY-038) for noise detection
-  - GPS module (NEO-6M) for location tracking
-  - Physical SOS button with buzzer and LED
-- MQTT/WebSocket for real-time sensor data streaming
-- Battery-powered portable safety device
-
-### Software Enhancements
-- Real NCRB dataset integration
-- User authentication and role-based access
-- PostgreSQL/MongoDB database for persistent storage
-- Time-series forecasting (LSTM/Prophet)
-- Geospatial clustering (DBSCAN) for precise hotspot detection
-- Push notifications and SMS alerts
-- Mobile-responsive PWA
-- Multi-language support (Hindi, regional languages)
-- Community safety reporting system
-
----
-
-## 👥 Team
-
-> Add your team member names, roll numbers, and college details here.
-
----
-
-## 📄 License
-
-This project is created for educational purposes as a college mini project.
-
----
-
-*Built with ❤ using React, FastAPI, and scikit-learn*
+*CrimeLens 2.0 — Engineered with React 19, FastAPI, scikit-learn, and Leaflet*
